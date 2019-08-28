@@ -10,3 +10,11 @@ thead{
 .badge{
     margin: 1.5px;
 }
+
+#list-group-item {
+    border-radius: 25px;
+}
+
+input, select, .btn {
+    border-radius: 25px !important;
+}

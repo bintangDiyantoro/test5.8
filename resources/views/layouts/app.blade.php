@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{url('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url('css/style.css')}}">
     <title>@yield('title')</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark mb-3">
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
         <div class="container">
             <a class="navbar-brand" href="/">Laravel Web</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,10 +24,13 @@
                         <a class="nav-link @yield('nav1')" href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @yield('nav2')" href="{{ url('/scholar') }}">Scholars</a>
+                        <a class="nav-link @yield('nav2')" href="{{ url('/scholars') }}">Scholars</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @yield('nav3')" href="{{ url('/about') }}">About Us</a>
+                        <a class="nav-link @yield('nav3')" href="{{ url('/students') }}">Students</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @yield('nav4')" href="{{ url('/about') }}">About Us</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -44,9 +47,10 @@
             </div>
         </div>
     </div>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="{{url('js/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{url('js/bootstrap.min.js')}}"></script>
+    <script src="{{url('js/popper.min.js')}}"></script>
+    <script src="{{url('js/script.js')}}"></script>
 </body>
 
 </html>

@@ -1,6 +1,5 @@
 $(function () {
-    $('.nav-link').on('click', function () {
-        $('.nav-link').removeClass('active');
-        $(this).addClass('active');
-    });
+    $('h1').on('click', function () {
+        console.log($(this).text());
+    })
 });

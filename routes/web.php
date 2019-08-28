@@ -19,5 +19,10 @@ Route::get('/', function () {
     return view('pages.index');
 });
 
+// Route::get('/students/create', function () {
+//     return view('students.add');
+// });
+
 Route::get('/about', 'Pages@about');
-Route::get('/scholar', 'Scholars@index');
+Route::get('/scholars', 'Scholars@index');
+Route::resource('/students', 'Students');
