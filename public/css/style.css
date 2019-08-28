@@ -1,0 +1,20 @@
+.navbar{
+    background-color: maroon;
+}
+
+thead{
+    color: white;
+    background-color: maroon;
+}
+
+.badge{
+    margin: 1.5px;
+}
+
+#list-group-item {
+    border-radius: 25px;
+}
+
+input, select, .btn {
+    border-radius: 25px !important;
+}
