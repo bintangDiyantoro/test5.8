@@ -7,11 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{url('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url('css/style.css')}}">
+    <link rel="stylesheet" href="{{url('css/mine.css')}}">
+
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700|Muli:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="{{url('fonts/icomoon/style.css')}}">
+    <link rel="stylesheet" href="{{url('css/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{url('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{url('css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{url('css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{url('css/jquery.fancybox.min.css')}}">
+    <link rel="stylesheet" href="{{url('css/bootstrap-datepicker.css')}}">
+    <link rel="stylesheet" href="{{url('fonts/flaticon/font/flaticon.css')}}">
+    <link rel="stylesheet" href="{{url('css/aos.css')}}">
+    <link href="{{url('css/jquery.mb.YTPlayer.min.css')}}" media="all" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{url('css/style2.css')}}">
     <title>@yield('title')</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="/">Laravel Web</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,9 +37,9 @@
                     <li class="nav-item">
                         <a class="nav-link @yield('nav1')" href="{{ url('/') }}">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link @yield('nav2')" href="{{ url('/scholars') }}">Scholars</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link @yield('nav3')" href="{{ url('/students') }}">Students</a>
                     </li>
@@ -40,17 +54,32 @@
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10">
-                @yield('content')
-            </div>
-        </div>
+
+    @yield('content')
+    <!-- loader -->
+    <div id="loader" class="show fullscreen">
+        <!-- <svg class="circular" width="48px" height="48px">
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#ff5e15" />
+        </svg> -->
     </div>
     <script src="{{url('js/jquery-3.4.1.min.js')}}"></script>
     <script src="{{url('js/bootstrap.min.js')}}"></script>
     <script src="{{url('js/popper.min.js')}}"></script>
     <script src="{{url('js/script.js')}}"></script>
+
+    <script src="{{url('js/jquery-migrate-3.0.1.min.js')}}"></script>
+    <script src="{{url('js/jquery-ui.js')}}"></script>
+    <script src="{{url('js/owl.carousel.min.js')}}"></script>
+    <script src="{{url('js/jquery.stellar.min.js')}}"></script>
+    <script src="{{url('js/jquery.countdown.min.js')}}"></script>
+    <script src="{{url('js/bootstrap-datepicker.min.js')}}"></script>
+    <script src="{{url('js/jquery.easing.1.3.js')}}"></script>
+    <script src="{{url('js/aos.js')}}"></script>
+    <script src="{{url('js/jquery.fancybox.min.js')}}"></script>
+    <script src="{{url('js/jquery.sticky.js')}}"></script>
+    <script src="{{url('js/jquery.mb.YTPlayer.min.js')}}"></script>
+    <script src="{{url('js/main.js')}}"></script>
 </body>
 
 </html>
