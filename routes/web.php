@@ -19,10 +19,10 @@ Route::get('/', function () {
     return view('pages.index');
 });
 
-// Route::get('/students/create', function () {
-//     return view('students.add');
-// });
-
 Route::get('/about', 'Pages@about');
 Route::get('/scholars', 'Scholars@index');
 Route::resource('/students', 'Students');
+Route::get('restore', 'Students@restore');
+Route::get('deleted/{name}', function ($name) {
+    return redirect('students')->with('status', 'Data of ' . str_replace('%dot%', '.', $name) . ' is deleted!');
+});

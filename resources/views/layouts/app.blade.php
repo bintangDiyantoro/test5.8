@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{url('css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{url('css/style.css')}}">
-    <link rel="stylesheet" href="{{url('css/mine.css')}}">
 
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700|Muli:300,400" rel="stylesheet">
     <link rel="stylesheet" href="{{url('fonts/icomoon/style.css')}}">
@@ -21,6 +19,8 @@
     <link rel="stylesheet" href="{{url('css/aos.css')}}">
     <link href="{{url('css/jquery.mb.YTPlayer.min.css')}}" media="all" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{url('css/style2.css')}}">
+
+    <link rel="stylesheet" href="{{url('css/style.css')}}">
     <title>@yield('title')</title>
 </head>
 
@@ -66,7 +66,6 @@
     <script src="{{url('js/jquery-3.4.1.min.js')}}"></script>
     <script src="{{url('js/bootstrap.min.js')}}"></script>
     <script src="{{url('js/popper.min.js')}}"></script>
-    <script src="{{url('js/script.js')}}"></script>
 
     <script src="{{url('js/jquery-migrate-3.0.1.min.js')}}"></script>
     <script src="{{url('js/jquery-ui.js')}}"></script>
@@ -80,6 +79,9 @@
     <script src="{{url('js/jquery.sticky.js')}}"></script>
     <script src="{{url('js/jquery.mb.YTPlayer.min.js')}}"></script>
     <script src="{{url('js/main.js')}}"></script>
+
+    <script src="{{url('js/sweetalert2.all.min.js')}}"></script>
+    <script src="{{url('js/script.js')}}"></script>
 </body>
 
 </html>
