@@ -116,4 +116,11 @@ class Students extends Controller
         Student::destroy($student->id);
         return redirect('students')->with('status', 'Data of ' . $student->name . ' is successfully deleted!');
     }
+
+    public function restore()
+    {
+        // return $student;
+        Student::onlyTrashed()->restore();
+        return redirect('students')->with('status', 'Data is restored!');
+    }
 }

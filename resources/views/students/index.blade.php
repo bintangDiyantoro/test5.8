@@ -7,12 +7,7 @@
         <div class="col-md-10">
 
             @if(session('status'))
-            <div class="alert alert-success alert-dismissible fade show col-md-6" role="alert">
-                <strong>Success!</strong> {{session('status')}}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+            <input type="hidden" id="status" value="{{session('status')}}"></input>
             @endif
 
             <!-- Button trigger modal -->
@@ -42,6 +37,7 @@
                 @endforeach
             </div>
             <div class="justify-content-center">{{$students->links()}}</div>
+            <a href="restore" class="btn btn-outline-dark">Restore</a>
             <!-- {{$students->perPage()}} -->
             <!-- Modal -->
             <div class="modal fade" id="addStudentModal" tabindex="-1" role="dialog" aria-labelledby="addStudentModalLabel" aria-hidden="true">

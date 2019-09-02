@@ -15,7 +15,7 @@
                         <p class="card-text">Department</p>
                     </div>
                     <div class="float-center">
-                        <h5 class="card-title">: {{$student->name}}</h5>
+                        <h5 class="card-title" id="name">: {{$student->name}}</h5>
                         <p class="card-text">: {{$student->nis}}</p>
                         <p class="card-text">: {{$student->email}}</p>
                         <p class="card-text">: {{$student->department}}</p>
@@ -23,7 +23,9 @@
                         <form action="{{url('students/'.$student->id)}}" method="post" class="d-inline">
                             @method('DELETE')
                             @csrf
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are sure want to delete {{$student->name}}?')">Delete</button>
+                            <input type="hidden" id="id" value="{{$student->id}}">
+                            <!-- <button type="submit" class="btn btn-danger btn-del" onclick="return confirm('Are sure want to delete {{$student->name}}?')">Delete</button> -->
+                            <button type="submit" class="btn btn-danger btn-del">Delete</button>
                         </form>
                         <a href="{{url('students')}}" class="btn btn-primary float-right">Go Back</a>
                     </div>
