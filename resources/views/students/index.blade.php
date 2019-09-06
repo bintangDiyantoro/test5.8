@@ -38,7 +38,17 @@
             </div>
             <div class="justify-content-center">{{$students->links()}}</div>
             <a href="restore" class="btn btn-outline-dark">Restore</a>
+            <form action="{{url('saveexcel')}}" method="post" class="d-inline">
+                @csrf
+                <button type="submit" class="btn btn-outline-primary">Save excel</button>
+            </form>
+            <form action="{{url('retrieveexcel')}}" method="post" class="d-inline">
+                @csrf
+                <button type="submit" class="btn btn-outline-info">Retrieve excel</button>
+            </form>
             <!-- {{$students->perPage()}} -->
+
+
             <!-- Modal -->
             <div class="modal fade" id="addStudentModal" tabindex="-1" role="dialog" aria-labelledby="addStudentModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">

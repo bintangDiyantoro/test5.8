@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
@@ -26,3 +28,5 @@ Route::get('restore', 'Students@restore');
 Route::get('deleted/{name}', function ($name) {
     return redirect('students')->with('status', 'Data of ' . str_replace('%dot%', '.', $name) . ' is deleted!');
 });
+Route::post('saveexcel', 'Students@excelsave');
+Route::post('retrieveexcel', 'Students@retrieveexcel');
