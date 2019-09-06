@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Models\Student;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Students extends Controller
 {
@@ -122,5 +124,40 @@ class Students extends Controller
         // return $student;
         Student::onlyTrashed()->restore();
         return redirect('students')->with('status', 'Data is restored!');
+    }
+
+    public function excelsave()
+    {
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $students = Student::all();
+        $sheet->setCellValue('A1', 'Name');
+        $sheet->setCellValue('B1', 'NIS');
+        $sheet->setCellValue('C1', 'Email');
+        $sheet->setCellValue('D1', 'Department');
+        $i = 2;
+        foreach ($students as $std) {
+            $sheet->setCellValue('A' . $i, $std->name);
+            $sheet->setCellValue('B' . $i, $std->nis);
+            $sheet->setCellValue('C' . $i, $std->email);
+            $sheet->setCellValue('D' . $i, $std->department);
+            $i++;
+        }
+        $writer = new Xlsx($spreadsheet);
+        $writer->save('Students.xlsx');
+        return redirect('students')->with('status', 'Data is saved to excel file!');
+    }
+
+    public function retrieveexcel()
+    {
+        $inputFileType = 'Xlsx';
+        $inputFileName = 'Students.xlsx';
+
+        $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader('Xlsx');
+        $reader->setReadDataOnly(TRUE);
+        $spreadsheet = $reader->load("Students.xlsx");
+
+        $worksheet = $spreadsheet->getActiveSheet();
+        return view('students.retrieve', compact('worksheet'));
     }
 }
