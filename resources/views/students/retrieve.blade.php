@@ -5,28 +5,26 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-10">
-            <?php
-            // echo '<table style="color:maroon" class="table table-hover">' . PHP_EOL;
-            foreach ($worksheet->getRowIterator() as $row) {
-                // echo '<tr>' . PHP_EOL;
-                $cellIterator = $row->getCellIterator();
-                $cellIterator->setIterateOnlyExistingCells(TRUE); // This loops through all cells,
-                //    even if a cell value is not set.
-                // By default, only cells that have a value
-                //    set will be iterated.
-                // var_dump($cellIterator);
-                // die;
-                foreach ($cellIterator as $cell) {
-                    // echo '<td>' .
-                    $result[] = $cell->getValue();
-                    // .
-                    // '</td>' . PHP_EOL;
-                }
-                // echo '</tr>' . PHP_EOL;
-            }
-            var_dump($result);
-            // echo '</table>' . PHP_EOL; 
-            ?>
+            <table class="table table-hover">
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>NIS</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                </tr>
+                <?php $i = 1; ?>
+                @foreach($excelrow as $row)
+                <tr>
+                    <td>{{$i++}}</td>
+                    <td>{{$row[0]}}</td>
+                    <td>{{$row[1]}}</td>
+                    <td>{{$row[2]}}</td>
+                    <td>{{$row[3]}}</td>
+                </tr>
+                @endforeach
+            </table>
+            <a href="http://localhost:8000/Students.xlsx" class="btn btn-primary mb-3">Download</a>
         </div>
     </div>
 </div>
