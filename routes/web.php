@@ -30,3 +30,13 @@ Route::get('deleted/{name}', function ($name) {
 });
 Route::post('saveexcel', 'Students@excelsave');
 Route::post('retrieveexcel', 'Students@retrieveexcel');
+Route::post('upload', 'Students@upload');
+Route::get('ses', function () {
+    session(['hewan' => 'kambing']);
+});
+Route::get('res', function () {
+    echo session()->get('hewan');
+});
+Route::get('del', function () {
+    session()->flush();
+});

@@ -11,8 +11,8 @@ thead{
     margin: 1.5px;
 }
 
-#list-group-item {
-    border-radius: 25px;
+.list-group-item {
+    border-radius: 25px 0 !important;
 }
 
 input, select, .btn, .alert {

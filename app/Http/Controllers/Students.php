@@ -17,6 +17,7 @@ class Students extends Controller
      */
     public function index()
     {
+        // session()->flush();
         $students = Student::paginate(5);
         // return view('students.index', ['students' => $studens]);
         return view('students.index', compact('students'));
@@ -50,7 +51,7 @@ class Students extends Controller
         // ];
         $request->validate([
             'name' => 'required',
-            'nis' => 'required|numeric|digits:8',
+            'nis' => 'required|numeric|digits:8|unique:students,nis',
             'email' => 'required|email  ',
             'department' => 'required'
         ]);
@@ -93,8 +94,8 @@ class Students extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'nis' => 'required|numeric|digits:8',
-            'email' => 'required|email  ',
+            'nis' => 'required|numeric|digits:8|unique:students,nis,' . $student->id,
+            'email' => 'required|email',
             'department' => 'required'
         ]);
         $data = [
@@ -104,6 +105,7 @@ class Students extends Controller
             'department' => $request->department
         ];
         Student::where('id', $student->id)->update($data);
+
         return redirect('students')->with('status', 'Data ' . $request->name . ' successfully updated!');
     }
 
@@ -151,13 +153,30 @@ class Students extends Controller
     public function retrieveexcel()
     {
         $inputFileType = 'Xlsx';
-        $inputFileName = 'Students.xlsx';
+        $inputFileName = 'storage/app/files/Students.xlsx';
 
         $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader('Xlsx');
         $reader->setReadDataOnly(TRUE);
         $spreadsheet = $reader->load("Students.xlsx");
-
         $worksheet = $spreadsheet->getActiveSheet();
-        return view('students.retrieve', compact('worksheet'));
+
+        foreach ($worksheet->getRowIterator() as $row) {
+            $cellIterator = $row->getCellIterator();
+            $cellIterator->setIterateOnlyExistingCells(TRUE);
+            $col = [];
+            foreach ($cellIterator as $cell) {
+                $col[] = $cell->getValue();
+            }
+            $excelrow[] = $col;
+        }
+        array_shift($excelrow);
+        return view('students.retrieve', compact('excelrow'));
+    }
+
+    public function upload(Request $request)
+    {
+        $request->validate(['file' => 'required']);
+        $request->file('file')->storeAs('files', $request->file('file')->getClientOriginalName());
+        return redirect('students')->with('status', 'File is successfully uploaded!');
     }
 }

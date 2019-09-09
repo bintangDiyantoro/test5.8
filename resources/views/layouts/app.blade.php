@@ -80,6 +80,9 @@
     <script src="{{url('js/jquery.mb.YTPlayer.min.js')}}"></script>
     <script src="{{url('js/main.js')}}"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="{{url('js/scrolltotop.js')}}"></script>
     <script src="{{url('js/sweetalert2.all.min.js')}}"></script>
     <script src="{{url('js/script.js')}}"></script>
 </body>

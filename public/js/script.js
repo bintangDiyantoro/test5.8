@@ -1,4 +1,8 @@
 $(function () {
+    $('.list-group-item').on('click', function () {
+        let id = $(this).val();
+        $(location).attr('href', 'http://localhost:8000/students/' + id);
+    });
     $('.btn-del').on('click', (e) => {
         e.preventDefault();
 
@@ -31,7 +35,10 @@ $(function () {
             }
         })
     })
-
+    $('.custom-file-input').on('change', function () {
+        let fileName = $(this).val().split('\\').pop();
+        $(this).next('.custom-file-label').addClass("selected").html(fileName);
+    });
     const status = $('#status').val();
     if (status) {
         Swal.fire({

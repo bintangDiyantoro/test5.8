@@ -19,10 +19,11 @@
 
             <div class="mb-3">
                 <h1 class="mt-3">Students List</h1>
-                @foreach($students as $student)
                 <ul class="list-group col-md-6 mb-1">
+                    @foreach($students as $student)
                     <!-- <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"> -->
-                    <li class="list-group-item list-group-item-action" id="list-group-item">
+                    <li class="list-group-item list-group-item-action" value="{{$student->id}}">
+                        <!-- <input type="hidden" name="id" value="{{$student->id}}"> -->
                         @if(isset($_GET['page']))
                         <b>{{ $students->perPage()*$_GET['page']-$students->perPage()+$loop->iteration . '. '}} </b>
                         @else
@@ -33,8 +34,8 @@
                             <a href="{{url('students/'.$student->id)}}" class="badge badge-info badge-pill">detail</a>
                         </div>
                     </li>
+                    @endforeach
                 </ul>
-                @endforeach
             </div>
             <div class="justify-content-center">{{$students->links()}}</div>
             <a href="restore" class="btn btn-outline-dark">Restore</a>
@@ -45,6 +46,21 @@
             <form action="{{url('retrieveexcel')}}" method="post" class="d-inline">
                 @csrf
                 <button type="submit" class="btn btn-outline-info">Retrieve excel</button>
+            </form>
+            <form action="{{url('upload')}}" method="post" enctype="multipart/form-data" class="d-inline">
+                <div class="input-group my-3 col-sm-5">
+                    <div class="custom-file">
+                        @csrf
+                        <input type="file" class="custom-file-input @if(preg_grep('[file]', $errors->all())) is-invalid @endif" name="file" id="file">
+                        <label class="custom-file-label" for="file" aria-describedby="inputGroupFileAddon02">Choose file</label>
+                    </div>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-outline-primary mx-3" id="inputGroupFileAddon02">Upload</button>
+                    </div>
+                </div>
+                @if(preg_grep('[file]', $errors->all()))
+                <small class="text-sm text-danger ml-3">{{ array_values(preg_grep('[file]', $errors->all()))[0] }}</small>
+                @endif
             </form>
             <!-- {{$students->perPage()}} -->
 
