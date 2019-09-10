@@ -40,3 +40,6 @@ Route::get('res', function () {
 Route::get('del', function () {
     session()->flush();
 });
+Route::get('help/{a}/{b}', function ($a, $b) {
+    echo jumlah($a, $b);
+});
