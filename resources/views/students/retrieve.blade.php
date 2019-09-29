@@ -25,6 +25,7 @@
                 @endforeach
             </table>
             <a href="http://localhost:8000/Students.xlsx" class="btn btn-primary mb-3">Download</a>
+            <a href="{{url('insert')}}" class="btn btn-info mb-3">Insert to DB</a>
         </div>
     </div>
 </div>

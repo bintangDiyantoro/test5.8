@@ -5,7 +5,7 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-10">
-            <div class="card col-sm-5">
+            <div class="card col-sm-6">
                 <div class="card-body">
                     <h3 class="card-subtitle mb-2 text-muted text-center">Student's detail</h3>
                     <div class="float-left mr-3">

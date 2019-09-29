@@ -179,4 +179,17 @@ class Students extends Controller
         $request->file('file')->storeAs('files', $request->file('file')->getClientOriginalName());
         return redirect('students')->with('status', 'File is successfully uploaded!');
     }
+
+    public function insert(){
+        foreach($this->retrieveexcel()->excelrow as $mhs){
+            $data = [
+                'name' => $mhs[0],
+                'nis' => $mhs[1],
+                'email' => $mhs[2],
+                'department' => $mhs[3]
+            ];
+            Student::create($data);
+        }
+        return redirect('students')->with('status', 'Data successfully added!');
+    }
 }

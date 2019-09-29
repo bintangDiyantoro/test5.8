@@ -43,3 +43,4 @@ Route::get('del', function () {
 Route::get('help/{a}/{b}', function ($a, $b) {
     echo jumlah($a, $b);
 });
+Route::get('insert', 'Students@insert');
